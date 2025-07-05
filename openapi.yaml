@@ -60,23 +60,23 @@ paths:
                     type: string
 
   /open/v1/project:
-    $ref: "ticktick.yaml#/paths/~1open~1v1~1project"
+    $ref: "project.yaml#/paths/~1open~1v1~1project"
 
   /open/v1/project/{projectId}:
-    $ref: "ticktick.yaml#/paths/~1open~1v1~1project~1{projectId}"
+    $ref: "project.yaml#/paths/~1open~1v1~1project~1{projectId}"
 
   /open/v1/project/{projectId}/data:
-    $ref: "ticktick.yaml#/paths/~1open~1v1~1project~1{projectId}~1data"
+    $ref: "project.yaml#/paths/~1open~1v1~1project~1{projectId}~1data"
 
 
   /open/v1/task:
-    $ref: "ticktick.yaml#/paths/~1open~1v1~1task"
+    $ref: "task.yaml#/paths/~1open~1v1~1task"
 
   /open/v1/project/{projectId}/task/{taskId}:
-    $ref: "ticktick.yaml#/paths/~1open~1v1~1project~1{projectId}~1task~1{taskId}"
+    $ref: "task.yaml#/paths/~1open~1v1~1project~1{projectId}~1task~1{taskId}"
 
   /open/v1/project/{projectId}/task/{taskId}/complete:
-    $ref: "ticktick.yaml#/paths/~1open~1v1~1project~1{projectId}~1task~1{taskId}~1complete"
+    $ref: "task.yaml#/paths/~1open~1v1~1project~1{projectId}~1task~1{taskId}~1complete"
 
   /open/v1/task/{taskId}:
     $ref: "task.yaml#/paths/~1open~1v1~1task~1{taskId}"
