@@ -74,7 +74,7 @@ generate-api = "scripts.generate_api:main"
 dependencies = ["openapi-generator-cli>=7.0.0", ]
 
 [tool.hatch.envs.default.scripts]
-generate = "openapi-generator-cli generate -i openapi.yaml -g python-pydantic-v1 -o . --global-property=models,apis,supportingFiles --additional-properties=packageName=pyticktick,generateSourceCodeOnly=true,library=asyncio,readmeFilename=README.md,disallowAdditionalPropertiesIfNotPresent=false,hideGenerationTimestamp=true,projectName='TickTick API',projectDescription='[TickTick](https://ticktick.com/) TODO task manager.'; ruff check --fix ."
+generate = "openapi-generator-cli generate -i openapi.yaml -g python-pydantic-v1 -o . --global-property=models,apis,supportingFiles --additional-properties=packageName=pyticktick,generateSourceCodeOnly=true,library=asyncio,readmeFilename=README.md,disallowAdditionalPropertiesIfNotPresent=false,hideGenerationTimestamp=true,projectName='TickTick API',projectDescription='[TickTick](https://ticktick.com/) TODO task manager.' && ruff check --fix . && ruff format ."
 openapi = "openapi-generator-cli {args}"
 build-with-api = [
     "generate",
@@ -82,17 +82,19 @@ build-with-api = [
 ]
 
 [tool.ruff]
-line-length = 99
+line-length = 120
 exclude = [
     ".git",
     "__pycache__",
     "*.egg-info",
     "build",
     "dist",
-    "./pyticktick/models/",
-    "./pyticktick/apis/",
-    "./pyticktick/openapi_client/",
 ]
 
 [tool.ruff.lint.per-file-ignores]
 "pyticktick/api_client.py" = ["E721"]
+"pyticktick/models/status.py"= ["F821"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "tab"
