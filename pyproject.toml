@@ -89,9 +89,6 @@ exclude = [
     "*.egg-info",
     "build",
     "dist",
-    # Generované soubory OpenAPI
-    "pyticktick/openapi_client",
-    "pyticktick/apis",
-    "pyticktick/models",
-    # Případně další generované adresáře
+    "pyticktick/apis/**",
+    "pyticktick/models/**",
 ]
