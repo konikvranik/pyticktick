@@ -13,7 +13,6 @@
 
 
 import unittest
-import datetime
 
 from pyticktick.openapi_client.models.column import Column  # noqa: E501
 

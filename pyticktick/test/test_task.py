@@ -13,7 +13,6 @@
 
 
 import unittest
-import datetime
 
 from pyticktick.models.task import Task  # noqa: E501
 

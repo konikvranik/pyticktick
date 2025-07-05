@@ -13,7 +13,6 @@
 
 
 import unittest
-import datetime
 
 from pyticktick.models.open_v1_project_project_id_post_request import OpenV1ProjectProjectIdPostRequest  # noqa: E501
 

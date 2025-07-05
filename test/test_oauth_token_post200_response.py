@@ -13,7 +13,6 @@
 
 
 import unittest
-import datetime
 
 from pyticktick.openapi_client.models.oauth_token_post200_response import OauthTokenPost200Response  # noqa: E501
 

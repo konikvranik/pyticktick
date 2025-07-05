@@ -13,7 +13,6 @@
 
 
 import unittest
-import datetime
 
 from pyticktick.openapi_client.models.project_data import ProjectData  # noqa: E501
 

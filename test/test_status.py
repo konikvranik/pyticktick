@@ -13,9 +13,7 @@
 
 
 import unittest
-import datetime
 
-from pyticktick.openapi_client.models.status import Status  # noqa: E501
 
 class TestStatus(unittest.TestCase):
     """Status unit test stubs"""

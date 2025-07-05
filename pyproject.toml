@@ -8,9 +8,9 @@ version = "1.0.0"
 description = "TickTick API"
 readme = "README.md"
 authors = [
-    {name = "OpenAPI Generator community", email = "team@openapitools.org"}
+    { name = "OpenAPI Generator community", email = "team@openapitools.org" }
 ]
-license = {text = "NoLicense"}
+license = { text = "NoLicense" }
 requires-python = ">=3.8"
 keywords = ["OpenAPI", "OpenAPI-Generator", "TickTick API"]
 classifiers = [
@@ -36,8 +36,7 @@ dependencies = [
 dev = [
     "pytest >= 7.2.1",
     "tox >= 3.9.0",
-    "flake8 >= 4.0.0",
-    "flake8-pyproject",
+    "ruff",
     "hatch"
 ]
 test = [
@@ -75,26 +74,25 @@ generate-api = "scripts.generate_api:main"
 dependencies = ["openapi-generator-cli>=7.0.0", ]
 
 [tool.hatch.envs.default.scripts]
-generate = "openapi-generator-cli generate -i openapi.yaml -g python-pydantic-v1 -o . --global-property=models,apis,supportingFiles --additional-properties=packageName=pyticktick,generateSourceCodeOnly=true,library=asyncio,readmeFilename=README.md,disallowAdditionalPropertiesIfNotPresent=false,hideGenerationTimestamp=true,projectName='TickTick API',projectDescription='[TickTick](https://ticktick.com/) TODO task manager.'"
+generate = "openapi-generator-cli generate -i openapi.yaml -g python-pydantic-v1 -o . --global-property=models,apis,supportingFiles --additional-properties=packageName=pyticktick,generateSourceCodeOnly=true,library=asyncio,readmeFilename=README.md,disallowAdditionalPropertiesIfNotPresent=false,hideGenerationTimestamp=true,projectName='TickTick API',projectDescription='[TickTick](https://ticktick.com/) TODO task manager.'; ruff check --fix ."
 openapi = "openapi-generator-cli {args}"
 build-with-api = [
     "generate",
     "hatch build"
 ]
 
-[tool.flake8]
-max-line-length = 99
+[tool.ruff]
+line-length = 99
 exclude = [
     ".git",
     "__pycache__",
     "*.egg-info",
     "build",
     "dist",
+    "./pyticktick/models/",
+    "./pyticktick/apis/",
+    "./pyticktick/openapi_client/",
 ]
-per-file-ignores = [
-    # Ignorovat forward references v generovaných souborech
-    "pyticktick/models/*:F821",
-    "pyticktick/apis/*:F821",
-    "pyticktick/openapi_client/*:F821",
-    # Případně další generované adresáře
-]
+
+[tool.ruff.lint.per-file-ignores]
+"pyticktick/api_client.py" = ["E721"]

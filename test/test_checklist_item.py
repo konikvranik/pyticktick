@@ -13,7 +13,6 @@
 
 
 import unittest
-import datetime
 
 from pyticktick.openapi_client.models.checklist_item import ChecklistItem  # noqa: E501
 
