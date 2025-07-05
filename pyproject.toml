@@ -29,3 +29,16 @@ build-backend = "setuptools.build_meta"
 
 [tool.pylint.'MESSAGES CONTROL']
 extension-pkg-whitelist = "pydantic"
+
+[project.scripts]
+generate-api = "scripts.generate_api:main"
+
+[tool.hatch.envs.default]
+dependencies = ["openapi-python-client", ]
+
+[tool.hatch.envs.default.scripts]
+generate = "openapi-python-client generate --path openapi.yaml --output-path ./pyticktick"
+build-with-api = [
+    "generate",
+    "hatch build"
+]
