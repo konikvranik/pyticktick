@@ -71,10 +71,10 @@ extension-pkg-whitelist = "pydantic"
 generate-api = "scripts.generate_api:main"
 
 [tool.hatch.envs.default]
-dependencies = ["openapi-generator-cli", ]
+dependencies = ["openapi-generator-cli>=7.0.0", ]
 
 [tool.hatch.envs.default.scripts]
-generate = "openapi-generator-cli generate -i openapi.yaml -g python-pydantic-v1 -o . --global-property=models,apis,supportingFiles --additional-properties=packageName=pyticktick,generateSourceCodeOnly=true,library=asyncio"
+generate = "openapi-generator-cli generate -i openapi.yaml -g python-pydantic-v1 -o . --global-property=models,apis,supportingFiles --additional-properties=packageName=pyticktick,generateSourceCodeOnly=true,library=asyncio,readmeFilename=README.md,disallowAdditionalPropertiesIfNotPresent=false"
 openapi = "openapi-generator-cli {args}"
 build-with-api = [
     "generate",
