@@ -37,6 +37,7 @@ dev = [
     "pytest >= 7.2.1",
     "tox >= 3.9.0",
     "flake8 >= 4.0.0",
+    "flake8-pyproject",
     "hatch"
 ]
 test = [
