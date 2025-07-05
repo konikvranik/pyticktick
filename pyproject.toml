@@ -11,7 +11,7 @@ authors = [
     {name = "OpenAPI Generator community", email = "team@openapitools.org"}
 ]
 license = {text = "NoLicense"}
-requires-python = ">=3.7"
+requires-python = ">=3.8"
 keywords = ["OpenAPI", "OpenAPI-Generator", "TickTick API"]
 classifiers = [
     "Development Status :: 4 - Beta",
