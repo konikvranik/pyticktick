@@ -89,6 +89,11 @@ exclude = [
     "*.egg-info",
     "build",
     "dist",
-    "pyticktick/apis/**",
-    "pyticktick/models/**",
+]
+per-file-ignores = [
+    # Ignorovat forward references v generovaných souborech
+    "pyticktick/models/*:F821",
+    "pyticktick/apis/*:F821",
+    "pyticktick/openapi_client/*:F821",
+    # Případně další generované adresáře
 ]
