@@ -19,16 +19,4 @@ pyticktick/models/status.py
 pyticktick/models/task.py
 pyticktick/rest.py
 pyticktick/test/__init__.py
-pyticktick/test/test_checklist_item.py
-pyticktick/test/test_column.py
-pyticktick/test/test_default_api.py
-pyticktick/test/test_oauth_token_post200_response.py
-pyticktick/test/test_oauth_token_post_request.py
-pyticktick/test/test_open_v1_project_project_id_post_request.py
-pyticktick/test/test_open_v1_project_project_id_task_task_id_complete_post_request.py
-pyticktick/test/test_open_v1_task_task_id_post_request.py
-pyticktick/test/test_project.py
-pyticktick/test/test_project_data.py
-pyticktick/test/test_status.py
-pyticktick/test/test_task.py
 pyticktick_README.md
