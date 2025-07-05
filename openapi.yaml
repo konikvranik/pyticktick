@@ -68,14 +68,15 @@ paths:
   /open/v1/project/{projectId}/data:
     $ref: "project.yaml#/paths/~1open~1v1~1project~1{projectId}~1data"
 
-  /open/v1/project/{projectId}/task/{taskId}:
-    $ref: "task.yaml#/paths/~1open~1v1~1project~1{projectId}~1task~1{taskId}"
 
   /open/v1/task:
     $ref: "task.yaml#/paths/~1open~1v1~1task"
 
-  /open/v1/task/{taskId}:
-    $ref: "task.yaml#/paths/~1open~1v1~1task~1{taskId}"
+  /open/v1/project/{projectId}/task/{taskId}:
+    $ref: "task.yaml#/paths/~1open~1v1~1project~1{projectId}~1task~1{taskId}"
 
   /open/v1/project/{projectId}/task/{taskId}/complete:
     $ref: "task.yaml#/paths/~1open~1v1~1project~1{projectId}~1task~1{taskId}~1complete"
+
+  /open/v1/task/{taskId}:
+    $ref: "task.yaml#/paths/~1open~1v1~1task~1{taskId}"

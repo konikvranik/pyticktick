@@ -1,31 +1,100 @@
-[tool.poetry]
-name = "pyticktick.openapi_client"
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pyticktick.openapi-client"
 version = "1.0.0"
 description = "TickTick API"
-authors = ["OpenAPI Generator Community <team@openapitools.org>"]
-license = "NoLicense"
 readme = "README.md"
-repository = "https://github.com/GIT_USER_ID/GIT_REPO_ID"
+authors = [
+    { name = "OpenAPI Generator community", email = "team@openapitools.org" }
+]
+license = { text = "NoLicense" }
+requires-python = ">=3.8"
 keywords = ["OpenAPI", "OpenAPI-Generator", "TickTick API"]
-include = ["pyticktick.openapi_client/py.typed"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+dependencies = [
+    "urllib3 >= 1.25.3, < 2.1.0",
+    "python-dateutil",
+    "aiohttp >= 3.0.0",
+    "pydantic >= 1.10.5, < 2",
+    "aenum"
+]
 
-[tool.poetry.dependencies]
-python = "^3.7"
+[project.optional-dependencies]
+dev = [
+    "pytest >= 7.2.1",
+    "tox >= 3.9.0",
+    "ruff",
+    "hatch"
+]
+test = [
+    "pytest >= 7.2.1",
+]
 
-urllib3 = ">= 1.25.3"
-python-dateutil = ">=2.8.2"
-aiohttp = ">= 3.8.4"
-pydantic = "^1.10.5, <2"
-aenum = ">=3.1.11"
+[project.urls]
+Repository = "https://github.com/konikvranik/pyticktick"
 
-[tool.poetry.dev-dependencies]
-pytest = ">=7.2.1"
-tox = ">=3.9.0"
-flake8 = ">=4.0.0"
+[tool.hatch.version]
+path = "pyticktick/__init__.py"
 
-[build-system]
-requires = ["setuptools"]
-build-backend = "setuptools.build_meta"
+[tool.hatch.build.targets.wheel]
+packages = ["pyticktick"]
+
+[tool.hatch.build.targets.wheel.sources]
+"pyticktick" = "pyticktick"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "pyticktick",
+    "README.md"
+]
+
+#[tool.hatch.build.targets.wheel.force-include]
+#"pyticktick.openapi_client/py.typed" = "pyticktick.openapi_client/py.typed"
 
 [tool.pylint.'MESSAGES CONTROL']
 extension-pkg-whitelist = "pydantic"
+
+[project.scripts]
+generate-api = "scripts.generate_api:main"
+
+[tool.hatch.envs.default]
+dependencies = ["openapi-generator-cli>=7.0.0", ]
+
+[tool.hatch.envs.default.scripts]
+generate = "openapi-generator-cli generate -i openapi.yaml -g python-pydantic-v1 -o . --global-property=models,apis,supportingFiles --additional-properties=packageName=pyticktick,generateSourceCodeOnly=true,library=asyncio,readmeFilename=README.md,disallowAdditionalPropertiesIfNotPresent=false,hideGenerationTimestamp=true,projectName='TickTick API',projectDescription='[TickTick](https://ticktick.com/) TODO task manager.' && ruff check --fix . && ruff format ."
+openapi = "openapi-generator-cli {args}"
+build-with-api = [
+    "generate",
+    "hatch build"
+]
+
+[tool.ruff]
+line-length = 120
+exclude = [
+    ".git",
+    "__pycache__",
+    "*.egg-info",
+    "build",
+    "dist",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"pyticktick/api_client.py" = ["E721"]
+"pyticktick/models/status.py"= ["F821"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "tab"
