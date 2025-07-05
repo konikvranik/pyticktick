@@ -21,3 +21,10 @@
 #docs/*.md
 # Then explicitly reverse the ignore rule for a single file:
 #!docs/README.md
+
+# Ignorovat vše kromě Python souborů
+**/*
+!**/*.py
+!**/models/
+!**/apis/
+!**/api/

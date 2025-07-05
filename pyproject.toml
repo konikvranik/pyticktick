@@ -74,7 +74,7 @@ generate-api = "scripts.generate_api:main"
 dependencies = ["openapi-generator-cli", ]
 
 [tool.hatch.envs.default.scripts]
-generate = "openapi-generator-cli generate -i openapi.yaml -g python-pydantic-v1 -o pyticktick --global-property=models,apis,supportingFiles --additional-properties=packageName=ticktick_api,generateSourceCodeOnly=true,library=asyncio"
+generate = "openapi-generator-cli generate -i openapi.yaml -g python-pydantic-v1 -o . --global-property=models,apis,supportingFiles --additional-properties=packageName=pyticktick,generateSourceCodeOnly=true,library=asyncio"
 openapi = "openapi-generator-cli {args}"
 build-with-api = [
     "generate",
